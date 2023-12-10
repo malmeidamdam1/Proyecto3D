@@ -49,10 +49,13 @@ public class PlayerMovement : MonoBehaviour
 		Vector3 moveDir = forwardRelative + rightRelative;
 		player.velocity = new Vector3(moveDir.x, player.velocity.y, moveDir.z);
 
-		transform.forward = new Vector3(player.velocity.x, 0, player.velocity.z);
+		if (moveDir != Vector3.zero) //if para evitar la advertencia "look rotation...zero"
+		{
+			transform.forward = new Vector3(player.velocity.x, 0, player.velocity.z);
+		}
 	}
 
-	void ProcesarSalto()
+		void ProcesarSalto()
 	{
 		if (EstaEnSuelo())
 		{

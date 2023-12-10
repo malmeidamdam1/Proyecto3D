@@ -4,26 +4,14 @@ using UnityEngine;
 
 public class CoinCollection : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    private int valor = 1;
+    public GameManager gameManager;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player") 
         {
+            gameManager.SumarPuntos(valor);
             Destroy(this.gameObject);
-
         }
-
     }
-
 }
